@@ -1,0 +1,74 @@
+def BracketCombinations(num):
+    memo = {}
+
+    def count_combinations(open_brackets, closed_brackets):
+        if open_brackets == 0 and closed_brackets == 0:
+            return 1
+        if (open_brackets, closed_brackets) in memo:
+            return memo[(open_brackets, closed_brackets)]
+
+        total_combinations = 0
+        if open_brackets > 0:
+            total_combinations += count_combinations(open_brackets - 1, closed_brackets + 1)
+        if closed_brackets > 0:
+            total_combinations += count_combinations(open_brackets, closed_brackets - 1)
+
+        memo[(open_brackets, closed_brackets)] = total_combinations
+        return total_combinations
+
+    return count_combinations(num, 0)
+
+# Example usage:
+print(BracketCombinations(3))  # Output should be 5
+
+
+
+
+
+def BracketCombinations(num):: 1ـ  در این خط، یک تابع به نام 
+ میگیرد num تعریف می‌شود که یک ورودی به نام   .
+
+ ایجاد می‌شود که برای ذخیره‌ی نتایج محاسبات به کار می‌رود.memo = {}: 2ـ  یک دیکشنری خالی به نام  
+
+def count_combinations(open_brackets, closed_brackets)::3ـ     یک تابع به نام  
+ تعریف می‌شود که تعداد پرانتزهای باز و بسته را نگه می‌دارد.count_combinations open_brackets و closed_brackets با دو پارامتر
+
+if open_brackets == 0 and closed_brackets == 0:: 4ـ       در این شرط،
+بررسی می‌شود که آیا تعداد پرانتزهای باز و بسته صفر است یا خیر. اگر هر دو صفر باشند، یک بر می‌گرداند که معادل یک ترکیب معتبر از پرانتزهاست.
+ 
+if (open_brackets, closed_brackets) in memo::5ـ     این شرط  
+  وجود دارد یا خیر اگز وجود داشته باشد نتیجه را بازمیگرداندmemo برسی میکند ک ایا پرانتز های باز و بسته در دیکشنری
+
+
+ برای محاسبه تعداد کل ترکیب‌های ممکن از پرانتزها استفاده می‌شود و ابتدا به صفر تنظیم می‌شود. total_combinations = 0: 6ـ      متغیر       
+ 
+
+if open_brackets > 0:: 7ـ      این شرط 
+بررسی می‌کند که آیا هنوز پرانتز بازی برای استفاده وجود دارد یا خیر. اگر وجود داشته باشد، یک تابع بازگشتی با تعداد پرانتزهای باز یک کمتر و تعداد پرانتزهای بسته یک بیشتر فراخوانده می‌شود.
+
+
+if closed_brackets > 0:: 8ـ      مانند شرط قبلی، این شرط 
+بررسی می‌کند که آیا هنوز پرانتز بسته‌ای برای استفاده وجود دارد یا خیر. اگر وجود داشته باشد، یک تابع بازگشتی با تعداد پرانتزهای باز نامتناهی و تعداد پرانتزهای بسته یک کمتر فراخوانده می‌شود.
+
+
+memo[(open_brackets, closed_brackets)] = total_combinations:     9ـ    
+  ذخیره میشودmemo .نتیجه محاسبه برای تعداد پرانتزهای باز و بسته‌ای که در این دور محاسبات بدست آمده‌است در دیکشنری 
+
+
+return total_combinations:        10ـ    
+در نهایت، تعداد کل ترکیب‌های ممکن از پرانتزها به عنوان نتیجه برگشتی از تابع بازگشتی برگردانده می‌شود.
+
+return count_combinations(num, 0):
+ 
+قرار میدهد و تابع numو تعداد پرانتزهای بسته صفر فراخوانی می‌کند را با تعداد پرانتزهای باز را برابربا Count_Combinations ین خط کد تابعا  
+را به عنوان نتیجه نهایی بازمیگرداندbracketcombinations 
+
+
+
+
+
+
+
+
+
+
